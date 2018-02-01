@@ -25,8 +25,7 @@ int czy_liczba_jest_poprawna(int liczba_usera, int wylosowana, int ilosc_prob){
 
 void sprawdzanie_wyniku(int wylosowana, int liczba_usera){
     while (liczba_usera<zakres_od || liczba_usera>zakres_do){
-        printf("\n\nPodales liczbe spoza zakresu [1,10]\n\n");
-        srand(time(0));
+        printf("\n\nPodales liczbe spoza zakresu [%d,%d]\n\n", zakres_od, zakres_do);
         liczba_usera=zakres_od+rand()%zakres_do;
         printf("Twoja nowa liczba to: %d", liczba_usera);
     }

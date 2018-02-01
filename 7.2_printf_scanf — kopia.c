@@ -11,8 +11,7 @@ void wypisywanie(va_list wskaznik_do_pierwszego_elementu_listy, char* lista_argu
             scanf("%d", &liczba);
             lista_argumentow="";
         }
-
-    printf("%s", lista_argumentow);
+        printf("%s", lista_argumentow);
     }
 }
 

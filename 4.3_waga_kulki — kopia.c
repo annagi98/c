@@ -1,6 +1,8 @@
 //Anna Nagi
 #include <stdio.h>
 
+enum wybieranie_rodzaju_kulek {WCZESNIEJ_NIEWAZONE=1, Z_LEWEJ_SZALKI, Z_PRAWEJ_SZALKI};
+
 int ponowne_polozenie_kulek(void){
     int wazenie;
     printf("\n\tPodales za duzo kulek. Sprobuj ponownie\n\t");
@@ -66,8 +68,7 @@ int main(void){
     }
     ktore_waza_wiecej(waga_lewej, waga_prawej);
 
-
-    int ktore_kulki=z_ktorej_szalki_wazyc_kulki();
+    enum wybieranie_rodzaju_kulek ktore_kulki=z_ktorej_szalki_wazyc_kulki();
     int kulki_lewa_2, kulki_prawa_2;
     printf("\n\n\tIle kulek chcesz polozyc na lewej szalce? ");
     scanf("%d", &kulki_lewa_2);
@@ -77,7 +78,7 @@ int main(void){
     waga_lewej=0;
     waga_prawej=0;
 
-    if(ktore_kulki==1){
+    if (ktore_kulki==WCZESNIEJ_NIEWAZONE){
         while(kulki_lewa_2+kulki_prawa_2>liczba_kulek-(kulki_lewa_1+kulki_prawa_1)){
               kulki_lewa_2=ponowne_polozenie_kulek();
               kulki_prawa_2=ponowne_polozenie_kulek();
@@ -90,8 +91,7 @@ int main(void){
         }
         ktore_waza_wiecej(waga_lewej,waga_prawej);
     }
-
-    else if(ktore_kulki==2){
+    else if (ktore_kulki==Z_LEWEJ_SZALKI){
         while(kulki_lewa_2+kulki_prawa_2>kulki_lewa_1){
             kulki_lewa_2=ponowne_polozenie_kulek();
             kulki_prawa_2=ponowne_polozenie_kulek();
@@ -104,8 +104,7 @@ int main(void){
         }
         ktore_waza_wiecej(waga_lewej,waga_prawej);
     }
-
-    else if(ktore_kulki==3){
+    else if (ktore_kulki==Z_PRAWEJ_SZALKI){
         while(kulki_lewa_2+kulki_prawa_2>kulki_prawa_1){
             kulki_lewa_2=ponowne_polozenie_kulek();
             kulki_prawa_2=ponowne_polozenie_kulek();

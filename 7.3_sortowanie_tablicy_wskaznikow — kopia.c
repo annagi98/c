@@ -1,9 +1,7 @@
 //Anna Nagi
 #include <stdio.h>
 
-const int rozmiar=10;
-
-void tworzenie_i_wyswietlanie_tablicy(int A[rozmiar], int rozmiar){
+void tworzenie_i_wyswietlanie_tablicy(const int rozmiar, int A[rozmiar]){
     int i;
     int *B[rozmiar];
     srand(time(0));
@@ -39,6 +37,6 @@ void tworzenie_i_wyswietlanie_tablicy(int A[rozmiar], int rozmiar){
 int main(void){
     int A[10];
     const int rozmiar=sizeof(A)/sizeof(A[0]);
-    tworzenie_i_wyswietlanie_tablicy(A, rozmiar);
+    tworzenie_i_wyswietlanie_tablicy(rozmiar, A);
     return 0;
 }

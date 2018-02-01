@@ -10,10 +10,10 @@
 int wczytaj_wybor_jezyka(void){
     int jezyk;
     scanf("%d", &jezyk);
-        while(jezyk!=1 && jezyk!=2){
-            printf("Podales nieprawidlowa liczbe, wybierz 1 lub 2.\n");
-            scanf("%d", &jezyk);
-        }
+    while(jezyk!=1 && jezyk!=2){
+        printf("Podales nieprawidlowa liczbe, wybierz 1 lub 2.\n");
+        scanf("%d", &jezyk);
+    }
     return jezyk;
 }
 
@@ -30,7 +30,7 @@ int policz_linie(char **wybor_pliku_1){
     return liczba_linii;
 }
 
-int losowanie(int linie){
+int losowanie_slowka(int linie){
     int wylosowana=rand()%linie+1;
     return wylosowana;
 }
@@ -50,26 +50,26 @@ void przypisanie_jezyka_danej_tablicy(char *wybor_pliku_1[], char *wybor_pliku_2
 
 const char *wyluskanie_slowa_z_pliku(int wylosowany_numer_linii, char *wybor_pliku[]){
     FILE *otwierany_plik = fopen(*wybor_pliku, "r");
-        int licznik1 = 0;
+    int licznik1 = 0;
 
-        if (otwierany_plik!= NULL){
-            static char wylosowane_slowo[100];
-            while (fgets(wylosowane_slowo, sizeof wylosowane_slowo, otwierany_plik)!=NULL){
-                if (licznik1==wylosowany_numer_linii){
-                    break;
-                }
-                else{
-                    licznik1++;
-                }
+    if (otwierany_plik!= NULL){
+        static char wylosowane_slowo[100];
+        while (fgets(wylosowane_slowo, sizeof wylosowane_slowo, otwierany_plik)!=NULL){
+            if (licznik1==wylosowany_numer_linii){
+                break;
             }
-            fclose(otwierany_plik);
-            return wylosowane_slowo;
+            else{
+                licznik1++;
+            }
         }
+        fclose(otwierany_plik);
+        return wylosowane_slowo;
+    }
 
-        else{
-            fprintf( stderr, "Nie mozna wczytac pliku \n");
-            exit(1);
-        }
+    else{
+        fprintf( stderr, "Nie mozna wczytac pliku \n");
+        exit(1);
+    }
 }
 
 void wyswietlanie_podpowiedzi(const char* slowo_przetlumaczone){
@@ -113,4 +113,3 @@ int porownywanie_slow(const char* slowo_przetlumaczone, char* slowo_uzytkownika)
     }
     return czy_sa_rowne;
 }
-

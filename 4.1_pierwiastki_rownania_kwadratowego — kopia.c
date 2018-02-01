@@ -8,18 +8,18 @@ int wprowadzanie_wartosci_wspolczynnikow(void){
     return wspolczynnik;
 }
 
-int liczenie_delty(int a, int b, int c){
+int liczenie_delty(const int a, const int b, const int c){
     float delta=b*b-4*a*c;
     printf("\nDelta wynosi: %.2f \n", delta);
     return delta;
 }
 
-void obliczanie_jednego_piewiastka(int a, int b){
+void obliczanie_jednego_piewiastka(const int a, const int b){
     float x0=-b/2*a;
     printf("\nWystepuje jeden pierwiastek rownania: %.2f\n", x0);
 }
 
-void obliczanie_dwoch_pierwiastkow(float delta, int a, int b){
+void obliczanie_dwoch_pierwiastkow(float delta, const int a, const int b){
     float pierwiastek_z_delty=sqrt(delta);
     float x1=(-b-pierwiastek_z_delty)/2*a;
     float x2=(-b+pierwiastek_z_delty)/2*a;

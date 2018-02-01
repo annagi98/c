@@ -1,30 +1,28 @@
 //Anna Nagi
 #include <stdio.h>
 
-const int N=3;
-
-void losowanie_macierzy(int m[N][N], int N){
+void losowanie_macierzy(const int rozmiar, int m[rozmiar][rozmiar]){
     srand(time(0));
     int i,j;
-    for(i=0; i<N; i++){
-        for(j=0; j<N; j++){
+    for(i=0; i<rozmiar; i++){
+        for(j=0; j<rozmiar; j++){
             m[i][j]=rand()%10;
         }
     }
 }
 
-void wyswietlanie_macierzy(int m[N][N], int N){
-    losowanie_macierzy(m,N);
+void wyswietlanie_macierzy(const int rozmiar, int m[rozmiar][rozmiar]){
+    losowanie_macierzy(rozmiar, m);
     int i,j;
-    for(i=0; i<N; i++){
+    for(i=0; i<rozmiar; i++){
         printf("\n\n");
-        for(j=0; j<N; j++){
+        for(j=0; j<rozmiar; j++){
             printf("%d  ", m[i][j]);
         }
     }
 }
 
-void obliczanie_wyznacznika(int m[N][N]){
+void obliczanie_wyznacznika(const int rozmiar, int m[rozmiar][rozmiar]){
     int wyznacznik=((m[0][0]*m[1][1])*m[2][2]+(m[0][1]*m[1][2])*m[2][0]+(m[0][2]*m[1][0])*m[2][1])\
                     -((m[0][2]*m[1][1])*m[2][0]+(m[0][1]*m[1][0])*m[2][2]+(m[0][0]*m[1][2])*m[2][1]);
 
@@ -32,12 +30,13 @@ void obliczanie_wyznacznika(int m[N][N]){
 }
 
 int main(void){
-    int macierz[N][N];
+    int macierz[3][3];
+    const int rozmiar=sizeof(macierz)/sizeof(macierz[0]);
     printf("Obliczanie wyznacznika macierzy 3x3. Wartosci w macierzy sa losowo dobrane.\n\n");
 
     printf("\nPostac macierzy:\n");
-    wyswietlanie_macierzy(macierz, N);
+    wyswietlanie_macierzy(rozmiar, macierz);
 
-    obliczanie_wyznacznika(macierz);
+    obliczanie_wyznacznika(rozmiar, macierz);
     return 0;
 }

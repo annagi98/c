@@ -3,16 +3,18 @@
 #include <time.h>
 #include <stdlib.h>
 
-int zadana_ilosc_liczb(void){
-	int n;
-	printf("Podaj liczbe: ");
-	scanf("%d", &n);
-	while (n<=0){
-		printf("Podales nieprawidlowa liczbe\n");
-		printf("Podaj liczbe: ");
-		scanf("%d", &n);
-	}
-    return n;
+int zamiana_string_na_int (char tekst[]){
+    char *str=tekst;
+    int intt;
+    sscanf(str, "%d", &intt);
+    return intt;
+}
+
+void sprawdzanie_liczby(int ilosc_liczb){
+    if (ilosc_liczb<0 || ilosc_liczb>1000){
+        printf("Podales nieprawidlowy argument - liczbe.\n");
+        exit(1);
+    }
 }
 
 const char* podaj_nazwe_pliku(void){
@@ -23,9 +25,8 @@ const char* podaj_nazwe_pliku(void){
     return nazwa_pliku;
 }
 
-void generowanie_liczb(void){
-    int n=zadana_ilosc_liczb();
-    const char* plik=podaj_nazwe_pliku();
+void generowanie_liczb(int n, char argv[1]){
+    char *plik=argv;
     int tab[n];
     srand(time(NULL));
 
@@ -43,7 +44,9 @@ void generowanie_liczb(void){
     fclose(zapisywanie_do_pliku);
 }
 
-int main(void){
-    generowanie_liczb();
+int main(int argc, char *argv[]){
+    int ilosc_liczb=zamiana_string_na_int(argv[0]);
+    sprawdzanie_liczby(ilosc_liczb);
+    generowanie_liczb(ilosc_liczb, argv[1]);
     return 0;
 }

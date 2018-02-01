@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include <time.h>
 
-const int rozmiar=10;
-
 int wybieranie_czynnosci(void){
     int czynnosc;
     scanf("%d", &czynnosc);
@@ -15,7 +13,7 @@ int wybieranie_czynnosci(void){
     return czynnosc;
 }
 
-void losowanie_tablicy(int tab[rozmiar], int rozmiar){
+void losowanie_tablicy(const int rozmiar, int tab[rozmiar]){
     int i;
     srand(time(0));
     for(i=0; i<rozmiar; ++i){
@@ -23,20 +21,20 @@ void losowanie_tablicy(int tab[rozmiar], int rozmiar){
     }
 }
 
-void wyswietlanie_tablicy(int* tab, int rozmiar){
+void wyswietlanie_tablicy(const int rozmiar, int* tab){
     int j;
-    losowanie_tablicy(tab,rozmiar);
+    losowanie_tablicy(rozmiar, tab);
     printf("Tablica: \n");
     for(j=0; j<rozmiar; j++){
         printf("Element nr %d = %d \n", j, tab[j]);
     }
 }
 
-void liczenie_sredniej(int* tab, int rozmiar){
+void liczenie_sredniej(const int rozmiar, int* tab){
     int suma=0;
     int k;
-    losowanie_tablicy(tab, rozmiar);
-    wyswietlanie_tablicy(tab, rozmiar);
+    losowanie_tablicy(rozmiar, tab);
+    wyswietlanie_tablicy(rozmiar, tab);
 
     for (k=0;k<10;k++){
         suma+=tab[k];
@@ -47,9 +45,9 @@ void liczenie_sredniej(int* tab, int rozmiar){
     printf("\nSrednia liczb w tablicy wynosi: %f \n",srednia);
 }
 
-void sortowanie_tablicy(int* tab, int rozmiar){
-    losowanie_tablicy(tab, rozmiar);
-    wyswietlanie_tablicy(tab, rozmiar);
+void sortowanie_tablicy(const int rozmiar, int* tab){
+    losowanie_tablicy(rozmiar, tab);
+    wyswietlanie_tablicy(rozmiar, tab);
     int schowek;
     int zamiana;
     int i;
@@ -72,15 +70,15 @@ void sortowanie_tablicy(int* tab, int rozmiar){
     }
 }
 
-void liczenie_mediany(int* tab, int rozmiar){
-    sortowanie_tablicy(tab, rozmiar);
+void liczenie_mediany(const int rozmiar, int* tab){
+    sortowanie_tablicy(rozmiar, tab);
     int mediana=0;
     mediana=(tab[4]+tab[5])/2;
     printf("\n\nMediana to: %d", mediana);
 }
 
-void element_max_min(int* tab, int rozmiar){
-    sortowanie_tablicy(tab, rozmiar);
+void element_max_min(const int rozmiar, int* tab){
+    sortowanie_tablicy(rozmiar, tab);
     int min=tab[0];
     int max=tab[rozmiar-1];
     printf("\n\nElement minimalny w tablicy to: %d, a maksymalny to %d\n\n", min, max);
@@ -97,19 +95,19 @@ int main(void){
     int czynnosc=wybieranie_czynnosci();
     switch(czynnosc){
         case 1:
-            losowanie_tablicy(tab, rozmiar);
+            losowanie_tablicy(rozmiar, tab);
             break;
         case 2:
-            wyswietlanie_tablicy(tab, rozmiar);
+            wyswietlanie_tablicy(rozmiar, tab);
             break;
         case 3:
-            liczenie_sredniej(tab, rozmiar);
+            liczenie_sredniej(rozmiar, tab);
             break;
         case 4:
-            liczenie_mediany(tab, rozmiar);
+            liczenie_mediany(rozmiar, tab);
             break;
         case 5:
-            element_max_min(tab, rozmiar);
+            element_max_min(rozmiar, tab);
             break;
     }
 

@@ -2,10 +2,9 @@
 #include <stdio.h>
 
 int main(void){
-    int licznik=0;
-    while(licznik<=255){
+    int licznik;
+    for (licznik=0; licznik<=255; licznik++){
         printf("Znak to %c, a jego numer to %d\n", licznik, licznik);
-        licznik++;
     }
     return 0;
 }

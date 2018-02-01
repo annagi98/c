@@ -7,7 +7,7 @@ int main(void){
     printf("Program pomaga w nauce technicznego jezyka angelskiego.\n\n");
     printf("Wybierz jezyk, w ktorym chcesz, aby wyswietlilo sie slowo. \n1-polski, 2-angielski\n\n");
 
-    enum wybieranie_jezyka jezyk=wczytaj_wybor_jezyka();
+    enum Kierunek_tlumaczenia jezyk=wczytaj_wybor_jezyka();
 
     int liczba_zyc=5;
     int liczba_podpowiedzi=3;
@@ -21,7 +21,7 @@ int main(void){
     int linie=policz_linie(wybor_pliku_1);
 
     while(liczba_zyc>0){
-        int wylosowany_numer_linii = losowanie(linie);
+        int wylosowany_numer_linii = losowanie_slowka(linie);
 
         const char *slowo_1=wyluskanie_slowa_z_pliku(wylosowany_numer_linii, wybor_pliku_1);
         printf("\n\n\nWylosowano slowo: %s", slowo_1);
@@ -36,8 +36,7 @@ int main(void){
 
         int p=0;
         char litera;
-        while (slowo_uzytkownika[p])
-        {
+        while (slowo_uzytkownika[p]){
             if (!isalpha(slowo_uzytkownika[p])){
                 printf("\n\nW twoim wyrazie wystepuja znaki inne niz litery. Wprowadz slowo ponownie: \n");
                 scanf("%s",slowo_uzytkownika);

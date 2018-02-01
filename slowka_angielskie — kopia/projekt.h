@@ -2,14 +2,13 @@
 #ifndef projekt_h
 #define projekt_h
 
-enum wybieranie_jezyka {POLSKI_NA_ANGIELSKI=1, ANGIELSKI_NA_POLSKI};
-
+enum Kierunek_tlumaczenia {POLSKI_NA_ANGIELSKI=1, ANGIELSKI_NA_POLSKI};
 
 int wczytaj_wybor_jezyka(void);
 
 int policz_linie(char **wybor_pliku_1);
 
-int losowanie(int linie);
+int losowanie_slowka(int linie);
 
 void przypisanie_jezyka_danej_tablicy(char *wybor_pliku_1[], char *wybor_pliku_2[], int jezyk);
 
