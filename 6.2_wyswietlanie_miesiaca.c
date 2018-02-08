@@ -2,13 +2,6 @@
 #include <stdio.h>
 #include <time.h>
 
-int zamiana_string_na_int (char tekst[]){
-    char *str=tekst;
-    int intt;
-    sscanf(str, "%d", &intt);
-    return intt;
-}
-
 void aktualny_miesiac(char *buffer){
     printf("\n\t\tAktualny miesiac i rok to: %s  ", buffer);
 }
@@ -64,16 +57,16 @@ int main(void){
     aktualny_miesiac(buffer);
 
     strftime(buffer, 100, "%d", informacja_czas);
-    int dzien_dzisiaj=zamiana_string_na_int(buffer);
+    int dzien_dzisiaj=atoi(buffer);
 
     strftime(buffer, 100, "%w", informacja_czas);
-    int jaki_dzien_tygodnia=zamiana_string_na_int(buffer);//(string 0-6, gdzie 0 to nd, 1 to pn itd.)
+    int jaki_dzien_tygodnia=atoi(buffer);//(string 0-6, gdzie 0 to nd, 1 to pn itd.)
 
     strftime(buffer, 100, "%m", informacja_czas);
-    int nr_miesiaca=zamiana_string_na_int(buffer);
+    int nr_miesiaca=atoi(buffer);
 
     strftime(buffer, 100, "%Y", informacja_czas);
-    int ktory_rok=zamiana_string_na_int(buffer);
+    int ktory_rok=atoi(buffer);
     aktualny_rok(ktory_rok);
 
     int dlugosc_miesiaca=ile_dni_w_miesiacu (nr_miesiaca, ktory_rok);

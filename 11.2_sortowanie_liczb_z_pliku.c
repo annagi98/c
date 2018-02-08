@@ -2,15 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-const char* podaj_nazwe_pliku(void){
-    char *nazwa_pliku;
-    nazwa_pliku = malloc(sizeof(char)*100);
-
-    printf("Wpisz tekst: ");
-    scanf("%s", nazwa_pliku);
-    return nazwa_pliku;
-}
-
 void wyswietlanie_liczb(FILE*wyswietlanie_pliku){
     printf("Plik docelowy nie istnieje.\n");
     int n=0;
@@ -51,24 +42,19 @@ void sortowanie(int tablica_liczb[], int n){
 }
 
 
-int main(void){
-    printf("Podaj nazwe pliku wejsciowego.\n");
-    const char*plik_wejsciowy=podaj_nazwe_pliku();
+int main(int argc, char *argv[]){
+    const char*plik_wejsciowy=argv[0];
 
     FILE*wyswietlanie_pliku;
     wyswietlanie_pliku=fopen(plik_wejsciowy, "r");
     if(wyswietlanie_pliku==NULL){
         fprintf (stderr, "Blad przy otwieraniu pliku: %s", strerror (errno));
+        exit(1);
     }
-
-    printf("Podaj nazwe pliku wyjsciowego: \n");
-    const char*plik_wyjsciowy=podaj_nazwe_pliku();
+    const char*plik_wyjsciowy=argv[1];
 
     FILE*plik_posortowany;
     plik_posortowany=fopen(plik_wyjsciowy, "r+");
-    if(plik_posortowany==NULL){
-        wyswietlanie_liczb(wyswietlanie_pliku);
-    }
 
     int ilosc_liczb_wejsciowo=policz_linie(plik_wejsciowy);
     int tablica_liczb[ilosc_liczb_wejsciowo];
@@ -79,6 +65,14 @@ int main(void){
         i++;
     }
     fclose(wyswietlanie_pliku);
+
+    if(plik_posortowany==NULL){
+        sortowanie(tablica_liczb, ilosc_liczb_wejsciowo);
+        int j;
+        for (j=0; j<ilosc_liczb_wejsciowo; j++){
+            printf("%d\n", tablica_liczb[i]);
+        }
+    }
 
     sortowanie(tablica_liczb, ilosc_liczb_wejsciowo);
     for(i=0; i<ilosc_liczb_wejsciowo; i++){

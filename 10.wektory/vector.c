@@ -11,13 +11,11 @@ void vector_init(Vector *vector){
 }
 
 int vector_size(Vector *vector){
-	int rozmiar=(vector->size);
-    return rozmiar;
+    return vector->size;
 }
 
 int vector_capacity(Vector *vector){
-    int pojemnosc=(vector->capacity);
-    return pojemnosc;
+    return vector->capacity;
 }
 
 void vector_empty(vector_size){
@@ -56,8 +54,7 @@ void vector_reverse(Vector *vector){
 }
 
 void vector_reserve(Vector *vector){
-    int i;
-    for(i=0; i<=vector->size; i++){
+    for(int i=0; i<=vector->size; i++){
         vector->nowa[i]=vector->data[i];
     }
     printf("\nYou have reserved your array\n");

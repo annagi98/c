@@ -74,9 +74,8 @@ const char *wyluskanie_slowa_z_pliku(int wylosowany_numer_linii, char *wybor_pli
 
 void wyswietlanie_podpowiedzi(const char* slowo_przetlumaczone){
     int ilosc_liter_w_slowie=strlen(slowo_przetlumaczone);
-    int i;
     printf("Slowo, ktore musisz wpisac ma tyle liter:  ");
-    for(i=0; i<ilosc_liter_w_slowie-1; i++){
+    for(int i=0; i<ilosc_liter_w_slowie-1; i++){
         printf("_");
     }
 }

@@ -14,34 +14,30 @@ int wybieranie_czynnosci(void){
 }
 
 void losowanie_tablicy(const int rozmiar, int tab[rozmiar]){
-    int i;
     srand(time(0));
-    for(i=0; i<rozmiar; ++i){
+    for(int i=0; i<rozmiar; ++i){
         tab[i]=rand()%100;
     }
 }
 
 void wyswietlanie_tablicy(const int rozmiar, int* tab){
-    int j;
     losowanie_tablicy(rozmiar, tab);
     printf("Tablica: \n");
-    for(j=0; j<rozmiar; j++){
+    for(int j=0; j<rozmiar; j++){
         printf("Element nr %d = %d \n", j, tab[j]);
     }
 }
 
 void liczenie_sredniej(const int rozmiar, int* tab){
     int suma=0;
-    int k;
     losowanie_tablicy(rozmiar, tab);
     wyswietlanie_tablicy(rozmiar, tab);
 
-    for (k=0;k<10;k++){
+    for (int k=0; k<rozmiar; k++){
         suma+=tab[k];
     }
 
-    float srednia=0;
-    srednia=suma/10;
+    float srednia=(float)suma/(float)rozmiar;
     printf("\nSrednia liczb w tablicy wynosi: %f \n",srednia);
 }
 
@@ -50,10 +46,9 @@ void sortowanie_tablicy(const int rozmiar, int* tab){
     wyswietlanie_tablicy(rozmiar, tab);
     int schowek;
     int zamiana;
-    int i;
     do{
         zamiana=0;
-        for (i=0; i<9; i++){
+        for (int i=0; i<rozmiar-1; i++){
             if (tab[i]>tab[i+1]){
                 zamiana=zamiana+1;
                 schowek=tab[i];
@@ -63,17 +58,21 @@ void sortowanie_tablicy(const int rozmiar, int* tab){
         }
     }
     while(zamiana!=0);
-    int j;
     printf("\nTablica posortowana: \n");
-    for(j=0; j<10; j++){
+    for(int j=0; j<rozmiar; j++){
         printf("Element nr %d = %d \n", j, tab[j]);
     }
 }
 
 void liczenie_mediany(const int rozmiar, int* tab){
     sortowanie_tablicy(rozmiar, tab);
-    int mediana=0;
-    mediana=(tab[4]+tab[5])/2;
+    int mediana;
+    if (rozmiar%2==0){
+        mediana=(tab[(rozmiar/2)-1]+tab[rozmiar/2])/2;
+    }
+    else{
+        mediana=(tab[(rozmiar/2)-1]);
+    }
     printf("\n\nMediana to: %d", mediana);
 }
 

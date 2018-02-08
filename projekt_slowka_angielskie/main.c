@@ -32,19 +32,19 @@ int main(void){
         char slowo_uzytkownika[100];
         const char tmp[10]="\n\0";
         printf("\n\nPodaj to slowo w drugim jezyku:\n");
-        scanf("%s",slowo_uzytkownika);
+        scanf("%s", slowo_uzytkownika);
 
-        int p=0;
+        int znak=0;
         char litera;
-        while (slowo_uzytkownika[p]){
-            if (!isalpha(slowo_uzytkownika[p])){
+        while (slowo_uzytkownika[znak]){
+            if (!isalpha(slowo_uzytkownika[znak])){
                 printf("\n\nW twoim wyrazie wystepuja znaki inne niz litery. Wprowadz slowo ponownie: \n");
-                scanf("%s",slowo_uzytkownika);
-                p=0;
+                scanf("%s", slowo_uzytkownika);
+                znak=0;
             }
-            litera=slowo_uzytkownika[p];
-            slowo_uzytkownika[p]=(tolower(litera));
-            p++;
+            litera=slowo_uzytkownika[znak];
+            slowo_uzytkownika[znak]=(tolower(litera));
+            znak++;
         }
 
         strcat(slowo_uzytkownika, tmp);
@@ -59,8 +59,7 @@ int main(void){
             printf("\nPodales nieprawidlowe slowo. Tracisz zycie.\n");
             liczba_zyc--;
             printf("\nPozostale zycia:  ");
-            int j;
-            for(j=0; j<liczba_zyc; j++){
+            for(int j=0; j<liczba_zyc; j++){
                 printf("x");
             }
 

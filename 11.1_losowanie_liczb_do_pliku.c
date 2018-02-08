@@ -3,13 +3,6 @@
 #include <time.h>
 #include <stdlib.h>
 
-int zamiana_string_na_int (char tekst[]){
-    char *str=tekst;
-    int intt;
-    sscanf(str, "%d", &intt);
-    return intt;
-}
-
 void sprawdzanie_liczby(int ilosc_liczb){
     if (ilosc_liczb<0 || ilosc_liczb>1000){
         printf("Podales nieprawidlowy argument - liczbe.\n");
@@ -45,7 +38,7 @@ void generowanie_liczb(int n, char argv[1]){
 }
 
 int main(int argc, char *argv[]){
-    int ilosc_liczb=zamiana_string_na_int(argv[0]);
+    int ilosc_liczb=atoi(argv[0]);
     sprawdzanie_liczby(ilosc_liczb);
     generowanie_liczb(ilosc_liczb, argv[1]);
     return 0;
