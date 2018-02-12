@@ -43,6 +43,11 @@ void sortowanie(int tablica_liczb[], int n){
 
 
 int main(int argc, char *argv[]){
+    if(argc!=2){
+        printf("Przy wywolaniu podale nieprawidlowa liczbe argumentow.\n");
+        exit(1);
+    }
+
     const char*plik_wejsciowy=argv[0];
 
     FILE*wyswietlanie_pliku;

@@ -33,13 +33,18 @@
 
 1517391593 c:\users\ania\desktop\programowanie w c\wys³aæ!\done\poprawione\do wys³ania\cprogramy\skopiowane\slowka_angielskie — kopia\projekt.h
 
-1517392054 source:c:\users\ania\desktop\programowanie w c\wys³aæ!\done\poprawione\do wys³ania\cprogramy\projekt_slowka_angielskie\projekt.c
+1518449609 source:c:\users\ania\desktop\programowanie w c\wys³aæ!\done\poprawione\do wys³ania\cprogramy\projekt_slowka_angielskie\projekt.c
 	<stdio.h>
+	<dirent.h>
 	<stdlib.h>
 	<time.h>
 	<string.h>
 	<ctype.h>
 	"projekt.h"
 
-1517392379 c:\users\ania\desktop\programowanie w c\wys³aæ!\done\poprawione\do wys³ania\cprogramy\projekt_slowka_angielskie\projekt.h
+1518448717 c:\users\ania\desktop\programowanie w c\wys³aæ!\done\poprawione\do wys³ania\cprogramy\projekt_slowka_angielskie\projekt.h
+
+1518448903 source:c:\users\ania\desktop\programowanie w c\wys³aæ!\done\poprawione\do wys³ania\cprogramy\projekt_slowka_angielskie\main.c
+	<stdio.h>
+	"projekt.h"
 

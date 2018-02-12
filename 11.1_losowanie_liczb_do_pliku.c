@@ -38,6 +38,10 @@ void generowanie_liczb(int n, char argv[1]){
 }
 
 int main(int argc, char *argv[]){
+    if (argc!=2){
+        printf("Przy wywolaniu programu podales nieprawidlowa liczbe argumentow.\n");
+        exit(1);
+    }
     int ilosc_liczb=atoi(argv[0]);
     sprawdzanie_liczby(ilosc_liczb);
     generowanie_liczb(ilosc_liczb, argv[1]);

@@ -15,6 +15,7 @@
     void wyswietlanie_podpowiedzi(const char* slowo_przetlumaczone);
     int czy_chcesz_skorzystac_z_podpowiedzi(int liczba_podpowiedzi, const char* slowo_przetlumaczone);
 
+    void sprawdzanie_slowa(char *slowo_uzytkownika);
     int porownywanie_slow(const char* slowo_przetlumaczone, char* slowo_uzytkownika);
 
 #endif

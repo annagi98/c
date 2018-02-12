@@ -1,7 +1,7 @@
 // vector.h  Anna Nagi
 #ifndef VECTOR_H
 #define VECTOR_H
-    #define VECTOR_INITIAL_CAPACITY 100
+#define VECTOR_INITIAL_CAPACITY 100
 
     typedef struct {
       int size;

@@ -4,8 +4,11 @@
 #include "projekt.h"
 
 int main(void){
-    printf("Program pomaga w nauce technicznego jezyka angelskiego.\n\n");
-    printf("Wybierz jezyk, w ktorym chcesz, aby wyswietlilo sie slowo. \n1-polski, 2-angielski\n\n");
+    printf("Program pomaga w nauce jezykow obcych.\n\n");
+    printf("Posiadamy obecnie slowniki:\n");
+    listuj_slowniki("slowniki");
+
+    printf("\nWybierz jezyk, w ktorym chcesz, aby wyswietlilo sie slowo. \n1-polski, 2-angielski\n\n");
 
     enum Kierunek_tlumaczenia jezyk=wczytaj_wybor_jezyka();
 
@@ -34,19 +37,7 @@ int main(void){
         printf("\n\nPodaj to slowo w drugim jezyku:\n");
         scanf("%s", slowo_uzytkownika);
 
-        int znak=0;
-        char litera;
-        while (slowo_uzytkownika[znak]){
-            if (!isalpha(slowo_uzytkownika[znak])){
-                printf("\n\nW twoim wyrazie wystepuja znaki inne niz litery. Wprowadz slowo ponownie: \n");
-                scanf("%s", slowo_uzytkownika);
-                znak=0;
-            }
-            litera=slowo_uzytkownika[znak];
-            slowo_uzytkownika[znak]=(tolower(litera));
-            znak++;
-        }
-
+        sprawdzanie_slowa(slowo_uzytkownika);
         strcat(slowo_uzytkownika, tmp);
 
         int rowne=porownywanie_slow(slowo_2, slowo_uzytkownika);
@@ -59,7 +50,8 @@ int main(void){
             printf("\nPodales nieprawidlowe slowo. Tracisz zycie.\n");
             liczba_zyc--;
             printf("\nPozostale zycia:  ");
-            for(int j=0; j<liczba_zyc; j++){
+            int j;
+            for(j=0; j<liczba_zyc; j++){
                 printf("x");
             }
 
