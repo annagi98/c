@@ -50,8 +50,7 @@ int main(void){
             printf("\nPodales nieprawidlowe slowo. Tracisz zycie.\n");
             liczba_zyc--;
             printf("\nPozostale zycia:  ");
-            int j;
-            for(j=0; j<liczba_zyc; j++){
+            for(int j=0; j<liczba_zyc; j++){
                 printf("x");
             }
 
